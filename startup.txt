@@ -14,3 +14,6 @@ loaded .bash_profile - Sat Aug 17 11:11:27 CDT 2024
 in this local bash_profile
 loaded .bashrc- Sat Aug 17 11:11:27 CDT 2024
 finished loading .bash_profile - Sat Aug 17 11:11:27 CDT 2024
+loaded .bash_profile - Sat Aug 17 15:40:25 CDT 2024
+loaded .bashrc- Sat Aug 17 15:40:25 CDT 2024
+finished loaded .bash_profile - Sat Aug 17 15:40:25 CDT 2024
