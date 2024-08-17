@@ -1,0 +1,16 @@
+loaded .bash_profile - Fri Aug 16 13:11:39 CDT 2024
+in this local bash_profile
+loaded .bashrc- Fri Aug 16 13:11:39 CDT 2024
+finished loading .bash_profile - Fri Aug 16 13:11:39 CDT 2024
+loaded .bash_profile - Fri Aug 16 15:40:53 CDT 2024
+in this local bash_profile
+loaded .bashrc- Fri Aug 16 15:40:53 CDT 2024
+finished loading .bash_profile - Fri Aug 16 15:40:53 CDT 2024
+loaded .bash_profile - Fri Aug 16 17:00:46 CDT 2024
+in this local bash_profile
+loaded .bashrc- Fri Aug 16 17:00:46 CDT 2024
+finished loading .bash_profile - Fri Aug 16 17:00:46 CDT 2024
+loaded .bash_profile - Sat Aug 17 11:11:27 CDT 2024
+in this local bash_profile
+loaded .bashrc- Sat Aug 17 11:11:27 CDT 2024
+finished loading .bash_profile - Sat Aug 17 11:11:27 CDT 2024
