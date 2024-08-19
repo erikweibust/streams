@@ -12,7 +12,7 @@
 	<artifactId>streams</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>streams</name>
-	<description>Demo project for Spring Boot</description>
+	<description>Quickstart project for Kafka Streams</description>
 	<url/>
 	<licenses>
 		<license/>
