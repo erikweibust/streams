@@ -1,4 +1,4 @@
-package com.example.demo2;
+package com.example.streams;
 
 import java.util.Arrays;
 import java.util.Properties;
@@ -10,9 +10,8 @@ import org.apache.kafka.streams.StreamsBuilder;
 import org.apache.kafka.streams.StreamsConfig;
 import org.apache.kafka.streams.Topology;
 import org.apache.kafka.streams.kstream.KStream;
-import org.apache.kafka.streams.kstream.ValueMapper;
 
-public class LineSplit {
+public class LineSplitLambda {
 
     public static void main(String[] args) {
         Properties props = new Properties();
@@ -24,14 +23,19 @@ public class LineSplit {
         final StreamsBuilder builder = new StreamsBuilder();
         KStream<String, String> source = builder.stream("streams-plaintext-input");
 
-        KStream<String, String> words = source.flatMapValues(new ValueMapper<String,Iterable<String>>() {
+        /*KStream<String, String> words = source.flatMapValues(new ValueMapper<String,Iterable<String>>() {
 
             public Iterable<String> apply(String value) {
                 return Arrays.asList(value.split("\\W+"));
             }
             
         });
+        source.to("streams-linesplit-output");*/
 
+        // can do the same thing above via a Lambda
+        //KStream<String, String> words = 
+        source.flatMapValues(value -> Arrays.asList( value.split( "\\W+" )))
+                                            .to("streams-linesplit-output");
 
         source.to("streams-linesplit-output");
 
