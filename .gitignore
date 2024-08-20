@@ -34,3 +34,7 @@ build/
 
 ### result of my dotfiles
 startup.txt
+
+### MACOS ###
+.DS_Store
+

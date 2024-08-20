@@ -32,6 +32,8 @@ public class WordCount {
             
         });
 
+        // this is just so the IDE stops complaining about me not using words
+        System.out.println("*** words: " + words);
 
         source.to("streams-linesplit-output");
 

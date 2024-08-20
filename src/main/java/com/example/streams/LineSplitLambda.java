@@ -10,6 +10,7 @@ import org.apache.kafka.streams.StreamsBuilder;
 import org.apache.kafka.streams.StreamsConfig;
 import org.apache.kafka.streams.Topology;
 import org.apache.kafka.streams.kstream.KStream;
+import org.apache.kafka.streams.kstream.Printed;
 
 public class LineSplitLambda {
 
@@ -23,24 +24,10 @@ public class LineSplitLambda {
         final StreamsBuilder builder = new StreamsBuilder();
         KStream<String, String> source = builder.stream("streams-plaintext-input");
 
-        /*KStream<String, String> words = source.flatMapValues(new ValueMapper<String,Iterable<String>>() {
-
-            public Iterable<String> apply(String value) {
-                return Arrays.asList(value.split("\\W+"));
-            }
-            
-        });
-        source.to("streams-linesplit-output");*/
-
-        // can do the same thing above via a Lambda
-        //KStream<String, String> words = 
         source.flatMapValues(value -> Arrays.asList( value.split( "\\W+" )))
-                                            .to("streams-linesplit-output");
+                .mapValues(v -> v.toUpperCase()).print(Printed.toSysOut());
 
         source.to("streams-linesplit-output");
-
-        // could have done this
-        //builder.stream("streams-plaintext-input").to("streams-pipe-output");
 
         final Topology topology = builder.build();
 
