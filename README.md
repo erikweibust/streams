@@ -11,9 +11,9 @@
 ### How to run
 1. Broker with ZooKeeper
 ```
-$ $KAFKA_HOME/bin/zookeeper-server-start.sh config/zookeeper.properties
+$ $KAFKA_HOME/bin/zookeeper-server-start.sh $KAFKA_HOME/config/zookeeper.properties
 
-$ $KAFKA_HOME/bin/kafka-server-start.sh config/server.properties
+$ $KAFKA_HOME/bin/kafka-server-start.sh $KAFKA_HOME/config/server.properties
 ```
 
 2. Source topic
@@ -37,5 +37,7 @@ $ $KAFKA_HOME/bin/kafka-topics.sh --create \
 
 4. Producer - push data into Source Topic
 ```
-$ $KAFKA_HOME/bin/kafka-console-producer.sh --bootstrap-server localhost:9092 --topic streams-plaintext-input
+$ $KAFKA_HOME/bin/kafka-console-producer.sh \
+    --bootstrap-server localhost:9092 \
+    --topic streams-plaintext-input
 ```
