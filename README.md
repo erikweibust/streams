@@ -49,7 +49,8 @@ $ $KAFKA_HOME/bin/kafka-topics.sh --create \
     --bootstrap-server localhost:9092 \
     --replication-factor 1 \
     --partitions 1 \
-    --topic streams-linesplit-output
+    --topic streams-wordcount-output
+    #--topic streams-linesplit-output
     #--topic streams-pipe-output
 ```
 
@@ -59,3 +60,13 @@ $ $KAFKA_HOME/bin/kafka-console-producer.sh \
     --bootstrap-server localhost:9092 \
     --topic streams-plaintext-input
 ```
+
+5. Consumer - for use with Wordcount Streams app
+```
+$ $KAFKA_HOME/bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 \
+    --topic streams-wordcount-output \
+    --from-beginning \
+    --property print.key=true \
+    --property print.value=true \
+    --property key.deserializer=org.apache.kafka.common.serialization.StringDeserializer \
+    --property value.deserializer=org.apache.kafka.common.serialization.LongDeserializer
