@@ -13,18 +13,18 @@
 
 Note: could not get this method to work consistently. Going with KRaft route (see below)
 
-#### Starting Kafta w/ Zookeeper
+#### Starting Kafka w/ Zookeeper
 ```
 $ $KAFKA_HOME/bin/zookeeper-server-start.sh $KAFKA_HOME/config/zookeeper.properties
 
 $ $KAFKA_HOME/bin/kafka-server-start.sh $KAFKA_HOME/config/server.properties
 ```
-#### Starting Kafta w/ KRaft
-Generate a Cluser UUID (Do this one time)
+#### Starting Kafka w/ KRaft
+Generate a Cluster UUID (Do this one time)
 ```
 $ KAFKA_CLUSTER_ID="$($KAFKA_HOME/bin/kafka-storage.sh random-uuid)"
 ```
-Format Log Directories
+Format Log Directories (Do this one time)
 ```
 $ $KAFKA_HOME/bin/kafka-storage.sh format -t $KAFKA_CLUSTER_ID \
     -c $KAFKA_HOME/config/kraft/server.properties
@@ -34,7 +34,7 @@ Start the Kafka server
 $ $KAFKA_HOME/bin/kafka-server-start.sh $KAFKA_HOME/config/kraft/server.properties
 ```
 
-2. Source topic
+2. Source topic (Do this one time)
 ```
 $ $KAFKA_HOME/bin/kafka-topics.sh --create \
     --bootstrap-server localhost:9092 \
@@ -43,7 +43,7 @@ $ $KAFKA_HOME/bin/kafka-topics.sh --create \
     --topic streams-plaintext-input
 ```
 
-3. Sink topic
+3. Sink topic (Do this one time)
 ```
 $ $KAFKA_HOME/bin/kafka-topics.sh --create \
     --bootstrap-server localhost:9092 \
