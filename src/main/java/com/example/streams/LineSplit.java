@@ -27,6 +27,7 @@ public class LineSplit {
         KStream<String, String> words = source.flatMapValues(new ValueMapper<String,Iterable<String>>() {
 
             public Iterable<String> apply(String value) {
+                System.out.println("*** value is: " + value);
                 return Arrays.asList(value.split("\\W+"));
             }
             
