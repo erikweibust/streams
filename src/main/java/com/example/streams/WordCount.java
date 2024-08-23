@@ -48,6 +48,8 @@ public class WordCount {
 
         // attach shutdown handler to catch control-c
         Runtime.getRuntime().addShutdownHook(new Thread("streams-shutdown-hook") {
+            
+            @Override
             public void run() {
                 streams.close();
                 latch.countDown();
